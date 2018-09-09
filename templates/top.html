@@ -2,8 +2,8 @@
 <html>
     <head>
     <meta charset="utf-8">
-    <title>【読むだけで終わらせない！】Re:ad</title>
-    <link rel="stylesheet" href="/static/stylesheet.css">
+    <title>Re:ad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
     </head>
     <center>
     <body>
@@ -13,7 +13,7 @@
         <div class="main">
             <div>
                 <form action="./result" method="post">
-                    <h1 class="section-title">本の検索</h1>
+                    <h1 class="section-title">Re:ad 本の検索</h1>
                     <h2>本で読んだ場面を現実の世界で体験してみませんか？</h2>
                     <h2>本のタイトルを入力↓</h2>
                     <input type="text" name="title">
@@ -24,6 +24,8 @@
         <div class="footer">
             <img class="book" src="https://4.bp.blogspot.com/-2t-ECy35d50/UPzH73UAg3I/AAAAAAAAKz4/OJZ0yCVaRbU/s1600/book.png">
         </div>
+        <br>
+        <a href="{{ url_for('static', filename='line.png') }}">LINE版</a>
     </body>
     </center>
 </html>
