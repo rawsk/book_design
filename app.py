@@ -45,9 +45,11 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
+    message = '申し訳ありません\n検索結果がございません'
+    results = search(event.message.text)
+    if results:
+        message = '\n'.join([item for result in results for item in result])
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=message))
 
 
 def search(title: str):
