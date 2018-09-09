@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>検索結果</title>
+        <link rel="stylesheet" href="/static/stylesheet.css">
+    </head>
+    <body>
+        <center><h1>検索結果<span style="font-size:50%;"> はこちらです</span></h1>
+            <h2>あなたが検索した本</h2>
+
+            {% for result in results %}
+            <h2>体験{{ loop.index }}</h2>
+            <a href="{{ result[1] }}">{{ result[0] }}</a>
+            {% endfor %}
+
+            <br>
+            <img src="/static/kuma.png">
+        </center>
+    </body>
+</html>

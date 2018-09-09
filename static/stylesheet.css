@@ -1,0 +1,26 @@
+h1{
+    color: white;/*文字色*/
+    padding: 0.5em;/*文字周りの余白*/
+    display: inline-block;/*おまじない*/
+    line-height: 1.3;/*行高*/
+    background: #FF0066;/*背景色*/
+    vertical-align: middle;/*上下中央*/
+    border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
+    }
+    
+    h1:before {
+    content: '●';
+    color: white;
+    margin-right: 8px;
+    }
+
+img.book {
+    height: 280px;
+    width: 400px;
+    padding-right:20px;
+    padding-top: 20px;
+}
+
+h2{
+    color: #000000;/*文字色*/
+}
