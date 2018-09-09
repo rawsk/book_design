@@ -1,5 +1,4 @@
 import os
-import sys
 import csv
 from flask import Flask, request, render_template, url_for, g, jsonify, abort
 from linebot import (
@@ -13,8 +12,8 @@ from linebot.models import (
 )
 app = Flask(__name__)
 
-channel_secret = os.environ['LINE_CHANNEL_SECRET']
-channel_access_token = os.environ['LINE_CHANNEL_ACCESS_TOKEN']
+channel_secret = os.environ.get('LINE_CHANNEL_SECRET')
+channel_access_token = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 
 if channel_secret is None or channel_access_token is None:
     app.config.from_pyfile('config.py')
@@ -26,14 +25,14 @@ line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
 
 
-@app.route("/callback", methods=['POST'])
+@app.route('/callback', methods=['POST'])
 def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
     # get request body as text
     body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
+    app.logger.info('Request body: ' + body)
 
     # handle webhook body
     try:
@@ -53,8 +52,8 @@ def handle_message(event):
 
 def search(title: str):
     results = []
-    csvfile = 'play1.csv'
-    f = open(csvfile, "r")
+    csvfile = 'play.csv'
+    f = open(csvfile, 'r')
     reader = csv.reader(f)
 
     for row in reader:
